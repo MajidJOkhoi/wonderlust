@@ -1,0 +1,41 @@
+<% layout('/layouts/boilerplate') %>
+
+
+<body>
+  <br>
+ <h3> All list </h3>
+
+ <br>
+ <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+  <% for(let listing of alllisting) { %>
+  <a href="/listings/<%= listing._id %>" class="listing-links">
+  <div class="card col listing-card " style="width: 17rem">
+    <img
+      style="height: 17rem;"
+      src="<%= listing.image.url %> "
+      class="card-img-top"
+      alt="listing-image"
+      
+    />
+
+    <div class="card-img-overlay"> abcd </div>
+
+    <div class="card-body">
+      <p class="card-text p-2">
+       <b>  <%= listing.title %>  </b> <br/>
+        <% if (listing.price !== null && listing.price !== undefined) { %>
+          &#8377; <%= listing.price.toLocaleString('en-IN') %> / night
+        <% } else { %>
+          Price not available
+        <% } %>
+      </p>
+    </div>
+  </div>
+
+</a>
+  <% } %>
+</div>
+
+</div>
+
+</body>
